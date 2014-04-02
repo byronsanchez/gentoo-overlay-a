@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>niteLite</name>
+    <description>experimental ebuilds from niteLite</description>
+    <homepage>http://github.com/hackbytes/gentoo-overlay</homepage>
+    <owner>
+      <email>byron@hackbytes.com</email>
+      <name>Byron Sanchez</name>
+    </owner>
+    <source type="git">git://github.com/hackbytes/gentoo-overlay.git</source>
+    <source type="git">https://github.com/hackbytes/gentoo-overlay.git</source>
+    <feed>https://github.com/hackbytes/gentoo-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
