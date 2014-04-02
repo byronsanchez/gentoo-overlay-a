@@ -18,7 +18,7 @@ HOMEPAGE="http://www.gnu.org/software/screen/"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug nethack pam selinux multiuser"
+IUSE="debug multiuser nethack pam selinux +tmpfiles"
 
 RDEPEND=">=sys-libs/ncurses-5.2
 	pam? ( virtual/pam )
@@ -46,10 +46,10 @@ src_prepare() {
 	# Fix manpage.
 	sed -i \
 		-e "s:/usr/local/etc/screenrc:${EPREFIX}/etc/screenrc:g" \
-		-e "s:/usr/local/screens:${EPREFIX}/run/screen:g" \
+		-e "s:/usr/local/screens:${EPREFIX}/var/run/screen:g" \
 		-e "s:/local/etc/screenrc:${EPREFIX}/etc/screenrc:g" \
 		-e "s:/etc/utmp:${EPREFIX}/var/run/utmp:g" \
-		-e "s:/local/screens/S-:${EPREFIX}/run/screen/S-:g" \
+		-e "s:/local/screens/S-:${EPREFIX}/var/run/screen/S-:g" \
 		doc/screen.1 \
 		|| die "sed doc/screen.1 failed"
 
@@ -66,7 +66,7 @@ src_configure() {
 	use debug && append-cppflags "-DDEBUG"
 
 	econf \
-		--with-socket-dir="${EPREFIX}/run/screen" \
+		--with-socket-dir="${EPREFIX}/var/run/screen" \
 		--with-sys-screenrc="${EPREFIX}/etc/screenrc" \
 		--with-pty-mode=0620 \
 		--with-pty-group=5 \
@@ -98,8 +98,10 @@ src_install() {
 		tmpfiles_group="utmp"
 	fi
 
-	dodir /etc/tmpfiles.d
-	echo "d /run/screen ${tmpfiles_perms} root ${tmpfiles_group}" >"${ED}"/etc/tmpfiles.d/screen.conf
+	if use tmpfiles; then
+		dodir /etc/tmpfiles.d
+		echo "d /run/screen ${tmpfiles_perms} root ${tmpfiles_group}" >"${ED}"/etc/tmpfiles.d/screen.conf
+	fi
 
 	insinto /usr/share/screen
 	doins terminfo/{screencap,screeninfo.src}
@@ -125,6 +127,4 @@ pkg_postinst() {
 		elog "We enable some xterm hacks in our default screenrc, which might break some"
 		elog "applications. Please check /etc/screenrc for information on these changes."
 	fi
-
-	ewarn "This revision changes the screen socket location to /run/screen."
 }
