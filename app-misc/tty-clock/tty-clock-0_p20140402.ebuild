@@ -26,7 +26,6 @@ src_prepare() {
 src_install() {
 	emake \
 		DESTDIR="${D}" \
-		INSTALLPATH="/usr/bin/" \
 		install
 	dodoc README
 }
