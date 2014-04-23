@@ -1,20 +1,14 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-9999.ebuild,v 1.3 2014/03/10 21:21:35 swegener Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-misc/screen/screen-4.2.0-r1.ebuild,v 1.1 2014/04/20 18:32:47 polynomial-c Exp $
 
-EAPI=4
+EAPI=5
 
-EGIT_REPO_URI="git://git.savannah.gnu.org/screen.git"
-EGIT_BOOTSTRAP="cd src; ./autogen.sh"
-EGIT_SOURCEDIR="${WORKDIR}/${P}" # needed for setting S later on
-EGIT_COMMIT="b8d11d7b9c40f295ae261aa5a82586e935e041df"
-
-WANT_AUTOCONF="2.5"
-
-inherit eutils flag-o-matic toolchain-funcs pam autotools user git-2
+inherit autotools eutils flag-o-matic pam toolchain-funcs user
 
 DESCRIPTION="Full-screen window manager that multiplexes physical terminals between several processes"
 HOMEPAGE="http://www.gnu.org/software/screen/"
+SRC_URI="http://download.savannah.gnu.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -29,8 +23,6 @@ DEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	>=sys-apps/openrc-0.11.6"
 
-S="${WORKDIR}"/${P}/src
-
 pkg_setup() {
 	# Make sure utmp group exists, as it's used later on.
 	enewgroup utmp 406
@@ -39,6 +31,15 @@ pkg_setup() {
 src_prepare() {
 	# Don't use utempter even if it is found on the system
 	epatch "${FILESDIR}"/4.0.2-no-utempter.patch
+
+	epatch "${FILESDIR}"/${P}-incompatible-protocol.patch \
+		"${FILESDIR}"/${P}-long_terminal_names.patch \
+		"${FILESDIR}"/${P}-tgetent.patch
+
+	# Fix segfault when being built without nethack support (bug #507916)
+	epatch "${FILESDIR}"/${P}-nonethack_segfault_fix.patch
+
+	epatch "${FILESDIR}"/${P}-check_for_altscreen.patch
 
 	# sched.h is a system header and causes problems with some C libraries
 	mv sched.h _sched.h || die
@@ -55,7 +56,7 @@ src_prepare() {
 		|| die "sed doc/screen.1 failed"
 
 	# reconfigure
-	eautoconf
+	eautoreconf
 }
 
 src_configure() {
@@ -129,3 +130,4 @@ pkg_postinst() {
 
 	ewarn "This revision changes the screen socket location to /run/screen."
 }
+
