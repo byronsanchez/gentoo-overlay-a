@@ -9,7 +9,7 @@ inherit webapp depend.php git-2
 DESCRIPTION="Ampache is a PHP-based tool for managing, updating and playing your audio files via a web interface."
 HOMEPAGE="http://www.ampache.org/"
 EGIT_REPO_URI="http://github.org/ampache/ampache.git"
-EGIT_COMMIT=4e6b4cae8aad23bd52ab17134ea32ef5619fcfb0
+EGIT_COMMIT=23a658258d50ab53e23d397802ed4f0a9af7b37d
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~ppc ~sparc ~x86"
