@@ -67,12 +67,12 @@ ruby_add_bdepend "
 #     Fix default settings to work with ssmtp that doesn't know '-t' argument.
 #
 RUBY_PATCHES=(
-	"${P}-fix-gemfile.patch"
-	"${P}-fix-project-name-regex.patch"
+	"${PN}-6.5.1-fix-gemfile.patch"
+	"${PN}-6.5.1-fix-project-name-regex.patch"
 	"${PN}-6.0.2-fix-sendmail-config.patch"
-	"${P}-fix-ldap-dn-case.patch"
-	"${P}-ldap-custom-mapping.patch"
-	"${P}-email-custom-reply_to.patch"
+	"${PN}-6.5.1-fix-ldap-dn-case.patch"
+	"${PN}-6.5.1-ldap-custom-mapping.patch"
+	"${PN}-6.5.1-email-custom-reply_to.patch"
 )
 
 MY_NAME="gitlab"
