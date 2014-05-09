@@ -2,8 +2,8 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-    <name>niteLite-a</name>
-    <description>experimental ebuilds from niteLite</description>
+    <name>nitelite-a</name>
+    <description>system ebuilds from nitelite</description>
     <homepage>http://github.com/hackbytes/gentoo-overlay-a</homepage>
     <owner>
       <email>byron@hackbytes.com</email>
