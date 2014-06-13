@@ -26,6 +26,11 @@ RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
 
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-fix-fossil-export.patch
+	epatch_user
+}
+
 src_configure() {
   # this is not an autotools situation so don't make it seem like one
   # --with-tcl: works
