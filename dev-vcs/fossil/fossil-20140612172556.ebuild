@@ -5,7 +5,7 @@
 EAPI=5
 MY_P=${PN}-src-${PV}
 
-inherit toolchain-funcs
+inherit toolchain-funcs eutils
 
 DESCRIPTION="Simple, high-reliability, source control management, and more"
 HOMEPAGE="http://www.fossil-scm.org/"
