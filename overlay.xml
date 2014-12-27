@@ -4,13 +4,13 @@
   <repo quality="experimental" status="unofficial">
     <name>nitelite-a</name>
     <description>system ebuilds from nitelite</description>
-    <homepage>http://github.com/hackbytes/gentoo-overlay-a</homepage>
+    <homepage>http://github.com/byronsanchez/gentoo-overlay-a</homepage>
     <owner>
       <email>byron@hackbytes.com</email>
       <name>Byron Sanchez</name>
     </owner>
-    <source type="git">git://github.com/hackbytes/gentoo-overlay-a.git</source>
-    <source type="git">https://github.com/hackbytes/gentoo-overlay-a.git</source>
-    <feed>https://github.com/hackbytes/gentoo-overlay-a/commits/master.atom</feed>
+    <source type="git">git://github.com/byronsanchez/gentoo-overlay-a.git</source>
+    <source type="git">https://github.com/byronsanchez/gentoo-overlay-a.git</source>
+    <feed>https://github.com/byronsanchez/gentoo-overlay-a/commits/master.atom</feed>
   </repo>
 </repositories>
