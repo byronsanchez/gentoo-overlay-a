@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI=5
+MY_P=${P}-linux
 
 DESCRIPTION="One more PNG-optimizer"
 HOMEPAGE="http://www.jonof.id.au/kenutils"
@@ -17,12 +18,14 @@ IUSE=""
 DEPEND=">=sys-libs/glibc-2.9"
 RDEPEND="${DEPEND}"
 
+S=${WORKDIR}/${MY_P}
+
 src_install() {
 	if use amd64;
 	then
-		dobin ${WORKDIR}/${P}-linux/athlon/${PN}
+		dobin ${WORKDIR}/${P}-linux/x86_64/${PN}
 	else
-		dobin ${WORKDIR}/${P}-linux/i686/${PN}
+		dobin ${WORKDIR}/${P}-linux/i386/${PN}
 	fi
 
 	[[ -d "/usr/share/doc/${PN}" ]] || dodir "/usr/share/${PN}" || die "failed to create USRSHARE"
