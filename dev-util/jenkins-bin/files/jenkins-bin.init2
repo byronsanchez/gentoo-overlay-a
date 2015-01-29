@@ -5,19 +5,13 @@ depend() {
     use dns logger mysql postgresql
 }
 
-JENKINS_PIDFILE=/var/run/jenkins/jenkins.pid
-JENKINS_WAR=/usr/lib/jenkins/jenkins.war
-
-RUN_AS=jenkins
-
 checkconfig() {
     if [ ! -n "$JENKINS_HOME" ] ; then
         eerror "JENKINS_HOME not configured"
         return 1
     fi
     if [ ! -d "$JENKINS_HOME" ] ; then
-        eerror "JENKINS_HOME directory does not exist: $JENKINS_HOME"
-        return 1
+        checkpath -q -d -o jenkins:jenkins -m 0755 "$JENKINS_HOME" || return 1
     fi
     return 0
 }
@@ -46,7 +40,7 @@ start() {
     ebegin "Starting ${SVCNAME}"
     start-stop-daemon --start --quiet --background \
         --make-pidfile --pidfile $JENKINS_PIDFILE \
-        --user $RUN_AS \
+        --user ${JENKINS_USER} \
         --exec "${COMMAND}" -- $JAVA_PARAMS $PARAMS
     eend $?
 }
@@ -56,3 +50,4 @@ stop() {
     start-stop-daemon --stop --quiet --pidfile $JENKINS_PIDFILE
     eend $?
 }
+
