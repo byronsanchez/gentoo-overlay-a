@@ -4,30 +4,19 @@
 
 EAPI=5
 
-inherit git-r3
+inherit git-2
 
-EGIT_REPO_URI="https://github.com/LemonBoy/bar.git"
-
-DESCRIPTION="Lightweight xcb based bar."
+DESCRIPTION="bar ain't recursive - A lightweight xcb based bar"
 HOMEPAGE="https://github.com/LemonBoy/bar"
+SRC_URI=""
+EGIT_REPO_URI="https://github.com/LemonBoy/bar.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-DEPEND="
-	x11-libs/libxcb
-"
-RDEPEND="${DEPEND}"
-
-src_compile() {
-	make all
-	make doc
-}
-
-src_install() {
-	emake DESTDIR="${D}" install
-	doman bar.1
-}
+DEPEND="x11-libs/libxcb
+		>=dev-lang/perl-5"
+RDEPEND="x11-libs/libxcb"
 
