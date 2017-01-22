@@ -4,6 +4,7 @@
 
 EAPI=5
 MY_P=${PN}-src-${PV}
+MY_SRC=${PN}-${PV}
 
 inherit toolchain-funcs eutils
 
@@ -24,7 +25,7 @@ DEPEND="sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/${MY_SRC}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-fix-fossil-export.patch
