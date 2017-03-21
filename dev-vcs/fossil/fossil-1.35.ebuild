@@ -27,7 +27,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-fix-fossil-export.patch
-	epatch_user
+	eapply_user
 }
 
 src_configure() {
