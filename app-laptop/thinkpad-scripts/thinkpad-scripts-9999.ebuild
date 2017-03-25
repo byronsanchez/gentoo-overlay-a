@@ -25,11 +25,8 @@ src_compile() {
 
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
-	make_session_desktop bspwm /usr/bin/bspwm
 
-	dodoc COPYING.rst README.rst CHANGELOG.rst
-
-	"${PYTHON}" setup.py install
+	"${PYTHON}" ${S}/setup.py install
 }
 
 pkg_postinst() {
