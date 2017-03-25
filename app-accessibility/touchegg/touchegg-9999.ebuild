@@ -17,15 +17,19 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
+DEPEND="app-accessibility/geis
+x11-libs/libXtst
+x11-libs/libX11
+dev-qt/qtgui:4
+dev-qt/qtsql:4
 RDEPEND="${DEPEND}"
 
 src_compile() {
+	eqmake5
 	emake PREFIX=/usr
 }
 
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
-	eqmake5
 }
 
