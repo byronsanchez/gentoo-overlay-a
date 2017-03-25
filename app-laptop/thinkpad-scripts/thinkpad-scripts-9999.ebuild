@@ -17,6 +17,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
+DEPEND="dev-python/configparser"
+RDEPEND="${DEPEND}"
+
 S="${S}"
 
 src_compile() {
@@ -27,9 +30,6 @@ src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
 
 	### Install the C mods
-	cd "${S}"
-	echo "---------------------------------- YES ------------------------------------"
-	pwd
 	./setup.py install --root "${D}" || die "Failed to install thinkpad-scripts"
 
 }
