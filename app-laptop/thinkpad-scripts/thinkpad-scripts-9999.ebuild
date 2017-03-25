@@ -29,14 +29,11 @@ src_install() {
 
 	dodoc COPYING.rst README.rst CHANGELOG.rst
 
-	local libdir=$(get_libdir)
-
-	"${PYTHON}" setup.py install \
-			--root="${D}" \
-			--prefix="${EPREFIX}/usr" \
-			--libdir="${EPREFIX}/usr/${libdir}" \
-			--staging-root="${ED}usr" \
-			--staging-libdir="${ED}usr/${libdir}" || die
-
+	"${PYTHON}" setup.py install
 }
+
+pkg_postinst() {
+	udevadm hwdb --update
+}
+
 
