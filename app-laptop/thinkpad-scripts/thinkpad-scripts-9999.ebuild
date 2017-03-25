@@ -17,7 +17,16 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="dev-python/configparser"
+DEPEND="dev-python/configparser
+sys-devel/gettext
+dev-python/setuptools
+dev-python/sphinx
+sys-power/acpi
+sys-power/acpid
+media-sound/alsa-utils
+virtual/udev
+x11-apps/xinput
+x11-apps/xrandr"
 RDEPEND="${DEPEND}"
 
 S="${S}"
