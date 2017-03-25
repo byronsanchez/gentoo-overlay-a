@@ -26,7 +26,12 @@ src_compile() {
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
 
-	"${PYTHON}" ${S}/setup.py install
+	### Install the C mods
+	cd "${S}"
+	echo "---------------------------------- YES ------------------------------------"
+	pwd
+	./setup.py install --root "${D}" || die "Failed to install thinkpad-scripts"
+
 }
 
 pkg_postinst() {
