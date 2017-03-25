@@ -69,13 +69,13 @@ src_install() {
 	udev_dorules 62-magick.rules
 
 	python_moduleinto /usr/share/${PN}
-	python_domodule *.py
+	python_domodule magick-rotation xrotate.py *.py
 
 	insinto /usr/share/${PN}/MagickIcons
 	doins MagickIcons/*.png
 
-	python_scriptinto /usr/share/${PN}
-	python_doscript magick-rotation xrotate.py gui_gtk.py
+	# python_scriptinto /usr/share/${PN}
+	# python_doscript magick-rotation xrotate.py gui_gtk.py
 
 	dodoc *.txt ChangeLog
 
