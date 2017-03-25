@@ -18,3 +18,25 @@ KEYWORDS=""
 IUSE=""
 
 S="${S}"
+
+src_compile() {
+	emake PREFIX=/usr
+}
+
+src_install() {
+	emake PREFIX="/usr" DESTDIR="${D}" install
+	make_session_desktop bspwm /usr/bin/bspwm
+
+	dodoc COPYING.rst README.rst CHANGELOG.rst
+
+	local libdir=$(get_libdir)
+
+	"${PYTHON}" setup.py install \
+			--root="${D}" \
+			--prefix="${EPREFIX}/usr" \
+			--libdir="${EPREFIX}/usr/${libdir}" \
+			--staging-root="${ED}usr" \
+			--staging-libdir="${ED}usr/${libdir}" || die
+
+}
+
