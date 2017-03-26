@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="3"
-inherit base
+inherit base autotools
 
 DESCRIPTION="An implementation of the GEIS (Gesture Engine Interface and Support) interface."
 SRC_URI="http://launchpad.net/geis/trunk/${PV}/+download/geis-${PV}.tar.xz"
@@ -19,4 +19,6 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	sed -i 's/python >= 2.7/python-2.7 >= 2.7/g' configure;
+	chmod +x ./autogen.sh
+	./autogen.sh
 }
