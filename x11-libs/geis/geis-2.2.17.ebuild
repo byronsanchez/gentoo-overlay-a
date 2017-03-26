@@ -4,7 +4,9 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{3,4,5} )
+PYTHON_COMPAT=( python{3_4,3_5} )
+
+#inherit distutils-r1
 
 DESCRIPTION="An implementation of the GEIS (Gesture Engine Interface and Support) interface."
 HOMEPAGE="https://launchpad.net/geis"
@@ -20,5 +22,7 @@ DEPEND="${RDEPEND}
 	x11-libs/grail"
 
 src_prepare() {
+	default
 	sed -i 's/python3 >= 3.2/python-3.4 >= 3.2/g' configure;
 }
+
