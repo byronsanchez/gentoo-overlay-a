@@ -14,7 +14,7 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}
-	x11-libs/mtdev
+	sys-libs/mtdev
 	x11-libs/evemu
 	x11-libs/frame
 	"
