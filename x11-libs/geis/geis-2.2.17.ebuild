@@ -15,7 +15,7 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}
-	x11-libs/utouch-grail"
+	x11-libs/grail"
 
 src_prepare() {
 	sed -i 's/python >= 2.7/python-2.7 >= 2.7/g' configure;
