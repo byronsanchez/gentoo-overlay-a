@@ -6,7 +6,7 @@ EAPI=4
 
 inherit git-2 eutils autotools
 
-EGIT_REPO_URI="https://github.com/ghost1227/cdm"
+EGIT_REPO_URI="https://github.com/pale3/cdm"
 
 DESCRIPTION="The Console Display Manager"
 HOMEPAGE="https://github.com/ghost1227/cdm"
