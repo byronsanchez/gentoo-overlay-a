@@ -6,8 +6,6 @@ EAPI=6
 
 PYTHON_COMPAT=( python3_{3,4,5} )
 
-inherit distutils-r1 gnome2-utils versionator
-
 DESCRIPTION="An implementation of the GEIS (Gesture Engine Interface and Support) interface."
 HOMEPAGE="https://launchpad.net/geis"
 SRC_URI="http://launchpad.net/geis/trunk/${PV}/+download/geis-${PV}.tar.xz"
