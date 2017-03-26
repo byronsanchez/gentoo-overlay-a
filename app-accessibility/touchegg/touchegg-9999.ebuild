@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit git-2 eutils autotools qmake-utils
+inherit git-2 eutils autotools qmake-utils qt4-r2
 
 EGIT_REPO_URI="https://github.com/JoseExposito/touchegg"
 
@@ -18,14 +18,16 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="app-accessibility/geis
+x11-libs/libXext
 x11-libs/libXtst
 x11-libs/libX11
+dev-qt/qtcore:4
 dev-qt/qtgui:4
-dev-qt/qtsql:4
+x11-libs/utouch-geis"
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	eqmake5
+	eqmake4
 	emake PREFIX=/usr
 }
 
