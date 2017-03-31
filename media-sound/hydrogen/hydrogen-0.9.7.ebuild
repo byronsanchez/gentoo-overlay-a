@@ -51,29 +51,3 @@ DOCS=( AUTHORS ChangeLog DEVELOPERS README.txt )
 
 S="${WORKDIR}/${PN}-${PVR/_rc/-RC}"
 
-src_configure()
-{
-    # Looks like raptor is now required
-	#
-	# If still having issues, see:
-	#
-	# https://github.com/hydrogen-music/hydrogen/pull/395
-	sed -e 's/-O2 //g' -i CMakeLists.txt
-	local mycmakeargs=(
-		$(cmake-utils_use_want alsa ALSA)
-		$(cmake-utils_use_want archive LIBARCHIVE)
-		$(cmake-utils_use_want debug DEBUG)
-		$(cmake-utils_use_want jack JACK)
-		$(cmake-utils_use_want jack-session JACKSESSION)
-		$(cmake-utils_use_want ladspa LRDF)
-		$(cmake-utils_use_want lash LASH)
-		$(cmake-utils_use_want oss OSS)
-		$(cmake-utils_use_want portaudio PORTAUDIO)
-		$(cmake-utils_use_want portmidi PORTMIDI)
-		$(cmake-utils_use_want pulseaudio PULSEAUDIO)
-		$(cmake-utils_use_want raptor RAPTOR)
-		$(cmake-utils_use_want rubberband RUBBERBAND)
-		$(cmake-utils_use_no static SHARED)
-	)
-	cmake-utils_src_configure
-}
