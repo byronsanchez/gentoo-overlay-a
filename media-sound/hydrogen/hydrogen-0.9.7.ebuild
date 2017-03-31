@@ -25,7 +25,7 @@ HOMEPAGE="http://www.hydrogen-music.org"
 LICENSE="GPL-2 ZLIB"
 SLOT="0"
 IUSE="+alsa +archive debug doc +jack jack-session ladspa lash oss portaudio portmidi
--pulseaudio rubberband static"
+-pulseaudio +raptor rubberband static"
 REQUIRED_USE="lash? ( alsa )"
 
 RDEPEND="archive? ( app-arch/libarchive )
@@ -42,6 +42,7 @@ RDEPEND="archive? ( app-arch/libarchive )
 	portaudio? ( >=media-libs/portaudio-19_pre )
 	portmidi? ( media-libs/portmidi )
 	pulseaudio? ( media-sound/pulseaudio )
+	raptor? ( media-libs/raptor )
 	rubberband? ( media-libs/rubberband )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
@@ -52,6 +53,11 @@ S="${WORKDIR}/${PN}-${PVR/_rc/-RC}"
 
 src_configure()
 {
+    # Looks like raptor is now required
+	#
+	# If still having issues, see:
+	#
+	# https://github.com/hydrogen-music/hydrogen/pull/395
 	sed -e 's/-O2 //g' -i CMakeLists.txt
 	local mycmakeargs=(
 		$(cmake-utils_use_want alsa ALSA)
@@ -65,6 +71,7 @@ src_configure()
 		$(cmake-utils_use_want portaudio PORTAUDIO)
 		$(cmake-utils_use_want portmidi PORTMIDI)
 		$(cmake-utils_use_want pulseaudio PULSEAUDIO)
+		$(cmake-utils_use_want raptor RAPTOR)
 		$(cmake-utils_use_want rubberband RUBBERBAND)
 		$(cmake-utils_use_no static SHARED)
 	)
