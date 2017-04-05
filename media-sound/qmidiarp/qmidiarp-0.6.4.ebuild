@@ -28,8 +28,6 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
-PATCHES=( "${FILESDIR}"/${P}-respect-destdir.patch )
-
 src_configure() {
 	local myeconfargs=(
 		$(use_enable doc doxygen-doc)
