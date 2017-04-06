@@ -1,0 +1,11 @@
+--- zynaddsubfx-99999999/CMakeLists.txt.orig	2016-11-18 01:02:35.000000000 +0100
++++ zynaddsubfx-99999999/CMakeLists.txt	2016-11-18 01:08:52.534082842 +0100
+@@ -4,7 +4,7 @@
+ set(VERSION_MAJOR "3")
+ set(VERSION_MINOR "0")
+ set(VERSION_REVISION "0")
+-
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+ 
+ #Include RTOSC
+ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/rtosc/CMakeLists.txt")
