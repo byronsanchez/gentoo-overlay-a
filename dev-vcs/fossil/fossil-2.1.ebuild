@@ -26,7 +26,13 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-fix-fossil-export.patch
+	# I decided to no longer maintain this patch since I don't need to mirror to
+	# github or bitbucket anymore with proper author attributes. This may have
+	# been fixed upstream in some way (eg. setting author fields in fossil ui?)
+	# but I haven't confirmed this.
+	#
+	# - Byron
+	#epatch "${FILESDIR}"/${P}-fix-fossil-export.patch
 	eapply_user
 }
 
