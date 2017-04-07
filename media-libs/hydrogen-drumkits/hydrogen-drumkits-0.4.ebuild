@@ -42,7 +42,15 @@ RDEPEND="media-sound/hydrogen"
 S="${WORKDIR}"
 
 src_unpack(){
-	cp "${DISTDIR}"/*.h2drumkit "${S}"
+    mkdir "${S}"/extract
+	cp "${DISTDIR}"/*.h2drumkit "${S}"/extract
+
+	for f in "${S}"/extract/*.h2drumkit;
+	do
+		tar xzf "${f}" -C "${S}"/extract
+	done
+
+	rm "${S}"/extract/*.h2drumkit
 }
 
 src_compile(){
@@ -51,5 +59,5 @@ src_compile(){
 
 src_install(){
 	insinto  /usr/share/hydrogen/data/drumkits/
-	doins -r *.h2drumkit
+	doins -r extract/*
 }
