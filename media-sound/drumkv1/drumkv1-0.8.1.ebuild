@@ -66,7 +66,6 @@ src_configure() {
 	use jack && myqmake "${PN}_jack.pro" -o "${PN}_jack.mak"
 	if use lv2; then
 		myqmake "${PN}_lv2.pro" -o "${PN}_lv2.mak"
-		myqmake "${PN}_lv2ui.pro" -o "${PN}_lv2ui.mak"
 	fi
 
 	if ! use qt5; then
