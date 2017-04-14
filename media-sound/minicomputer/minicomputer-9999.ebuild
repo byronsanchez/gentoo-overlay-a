@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit toolchain-funcs subversion
+inherit toolchain-funcs subversion eutils
 
 MY_P="${PN/mini/Mini}V${PV}"
 

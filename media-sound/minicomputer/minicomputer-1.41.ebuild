@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit toolchain-funcs
+inherit toolchain-funcs eutils
 
 MY_P="${PN/mini/Mini}V${PV}"
 
