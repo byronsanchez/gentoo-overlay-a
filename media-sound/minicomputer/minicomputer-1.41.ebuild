@@ -10,9 +10,10 @@ MY_P="${PN/mini/Mini}V${PV}"
 
 DESCRIPTION="Standalone Linux softwaresynthesizer"
 HOMEPAGE="http://minicomputer.sourceforge.net"
-SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
+#SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
+SRC_URI="https://downloads.sourceforge.net/project/minicomputer/minicomputer/MinicomputerV1.41.tar.gz"
 
-RESTRICT="mirror"
+#RESTRICT="mirror"
 
 LICENSE="GPL-3"
 SLOT="0"
