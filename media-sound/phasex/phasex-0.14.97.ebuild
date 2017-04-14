@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/media-sound/phasex/phasex-0.12.0_beta3.ebuild,v 1.2 2012/05/05 08:45:44 mgorny Exp $
 
 EAPI=2
+inherit autotools
 
 DESCRIPTION="Software synthesizer (Phase Harmonic Advanced Synthesis EXperiment)"
 HOMEPAGE="https://github.com/williamweston/phasex"
