@@ -26,7 +26,8 @@ src_prepare() {
 	# Rerun autotools
 	einfo "Regenerating autotools files..."
 
-	aclocal && autoconf && automake && autoheader || die "autotools failed"
+	#aclocal && autoconf && automake && autoheader || die "autotools failed"
+	eautoreconf
 }
 
 src_install() {
