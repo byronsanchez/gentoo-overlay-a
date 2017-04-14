@@ -22,7 +22,12 @@ RDEPEND="x11-libs/libX11
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-S=${WORKDIR}/${P/_beta3}
+src_prepare() {
+	# Rerun autotools
+	einfo "Regenerating autotools files..."
+
+	aclocal && autoconf && automake && autoheader || die "autotools failed"
+}
 
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
