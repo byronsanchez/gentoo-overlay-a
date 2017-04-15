@@ -22,3 +22,5 @@ DEPEND="${RDEPEND}"
 
 DOCS="README.md LICENSE CHANGELOG"
 
+S="${WORKDIR}/openAV-Fabla-release-${PV}"
+
