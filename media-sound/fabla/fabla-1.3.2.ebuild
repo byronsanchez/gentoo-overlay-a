@@ -3,6 +3,7 @@
 # $Id$
 
 EAPI=5
+inherit cmake-utils
 
 DESCRIPTION="Fabla is an open-source LV2 drum sampler plugin instrument."
 HOMEPAGE="http://openavproductions.com/fabla/"
