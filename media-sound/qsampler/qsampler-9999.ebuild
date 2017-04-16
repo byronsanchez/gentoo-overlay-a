@@ -24,7 +24,6 @@ RDEPEND="${DEPEND}
 	>=media-sound/linuxsampler-0.5"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-build.patch
 	eautoreconf
 }
 
