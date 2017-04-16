@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 	sys-apps/findutils
 	virtual/pkgconfig"
 
-S="${WORKDIR}/DISTRHO-Ports-master"
+S="${WORKDIR}/master"
 
 src_prepare() {
 	# kxstudio patches
