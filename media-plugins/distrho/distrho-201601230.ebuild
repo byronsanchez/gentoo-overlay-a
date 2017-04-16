@@ -29,7 +29,7 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXinerama
 	x11-libs/libXrender
-	x11-libs/qt-core:4"
+	dev-qt/qt-core:4"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
