@@ -7,7 +7,7 @@ inherit base multilib toolchain-funcs
 
 DESCRIPTION="Open-source project that provides Cross-Platform Audio Plugins using Juce and Qt4"
 HOMEPAGE="http://distrho.sourceforge.net/"
-SRC_URI="https://github.com/DISTRHO/DISTRHO-Ports/tarball/bef9436de38794dd2de24d404785089f33e6df8a"
+SRC_URI="https://github.com/DISTRHO/DISTRHO-Ports/archive/bef9436de38794dd2de24d404785089f33e6df8a.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
