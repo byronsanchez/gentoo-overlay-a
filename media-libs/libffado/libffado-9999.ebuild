@@ -44,6 +44,10 @@ RDEPEND="dev-cpp/libxmlpp[${MULTILIB_USEDEP}]
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}"/ffado_smartptr-error.patch
+)
+
 multilib_native_use_scons() {
 	if multilib_is_native_abi; then
 		use_scons "${@}"
