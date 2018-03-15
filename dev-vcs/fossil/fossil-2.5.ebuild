@@ -46,7 +46,7 @@ src_configure() {
 	use json   && myconf+=' --json'
 	use sqlite && myconf+=' --disable-internal-sqlite'
 	use static && myconf+=' --static'
-	use tcl    && myconf+=' --with-tcl --with-tcl-stubs'
+	use tcl    && myconf+=' --with-tcl-stubs'
 
 	local u
 	for u in legacy-mv-rm miniz th1-docs th1-hooks; do
