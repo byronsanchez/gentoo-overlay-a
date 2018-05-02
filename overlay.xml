@@ -6,7 +6,7 @@
     <description>system ebuilds from nitelite</description>
     <homepage>https://git.hackbytes.io/byronsanchez/gentoo-overlay-a</homepage>
     <owner>
-      <email>byron@gmail.com</email>
+      <email>byron@hackbytes.io</email>
       <name>Byron Sanchez</name>
     </owner>
     <source type="git">https://git.hackbytes.io/byronsanchez/gentoo-overlay-a</source>
