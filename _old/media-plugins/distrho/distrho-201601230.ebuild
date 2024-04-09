@@ -33,7 +33,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-S=${WORKDIR}/distrho
+S=${WORKDIR}/master
 
 src_configure() {
 	./scripts/premake-update.sh linux || die

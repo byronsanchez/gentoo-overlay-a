@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE repositories SYSTEM "https://www.gentoo.org/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>nitelite-a</name>
+    <description>system ebuilds from nitelite</description>
+    <homepage>https://github.com/byronsanchez/gentoo-overlay-a</homepage>
+    <owner type="person">
+      <email>byron@hackbytes.io</email>
+      <name>Byron Sanchez</name>
+    </owner>
+    <source type="git">https://github.com/byronsanchez/gentoo-overlay-a.git</source>
+    <feed>https://github.com/byronsanchez/gentoo-overlay-a/commits/master.atom</feed>
+  </repo>
+</repositories>
